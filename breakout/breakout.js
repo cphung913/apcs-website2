@@ -17,5 +17,5 @@ const ball = {
 }
 
 function drawBall() {
-    
+    ctx.beginPath()
 }
