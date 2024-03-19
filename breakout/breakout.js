@@ -9,3 +9,4 @@ rulesBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     rules.classList.remove('show');
 });
+
