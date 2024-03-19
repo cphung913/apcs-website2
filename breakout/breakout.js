@@ -16,6 +16,15 @@ const ball = {
     dy: -4
 }
 
+const paddle = {
+    x: canvas.width / 2 - 40,
+    y: canvas.height - 20,
+    w: 80,
+    h: 10,
+    speed: 8,
+    dx: 0
+}
+
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2 );
