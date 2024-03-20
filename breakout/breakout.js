@@ -3,10 +3,9 @@ const closeBtn = document.getElementById('close-btn');
 const rules = document.getElementById('rules');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-let score = 0;
 
-rulesBtn.addEventListener('click', () => rules.classList.add('show'));
-closeBtn.addEventListener('click', () => rules.classList.remove('show'));
+const brickRowCount = 9;
+const brickColumnCount = 5;
 
 const ball = {
     x: canvas.width / 2,
@@ -25,6 +24,17 @@ const paddle = {
     speed: 8,
     dx: 0
 }
+
+const brickInfo = {
+    w: 70,
+    h: 20,
+    padding: 10,
+    offsetX: 45,
+    offsetY: 60,
+    visible: true
+}
+
+let score = 0;
 
 function drawBall() {
     ctx.beginPath();
@@ -54,3 +64,6 @@ function draw() {
 }
 
 draw();
+
+rulesBtn.addEventListener('click', () => rules.classList.add('show'));
+closeBtn.addEventListener('click', () => rules.classList.remove('show'));
