@@ -37,7 +37,7 @@ const brickInfo = {
 
 let bricks = [];
 for (let i = 0; i < brickRowCount; i++) {
-    bricks[1] = [];
+    bricks[i] = [];
     for (let j = 0; j < brickColumnCount; j++) {
         const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
         const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
@@ -70,7 +70,7 @@ function drawBricks() {
     bricks.forEach(column => column.forEach(brick => {
         ctx.beginPath();
         ctx.fillRect(brick.x, brick.y, brick.w, brick.h);
-        ctx.fillStyle = `#0095dd`;
+        ctx.fillStyle = brick.visible ? `#0095dd` : `transparent`;
         ctx.fill();
         ctx.closePath();
     }));
