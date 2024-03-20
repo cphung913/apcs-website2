@@ -37,7 +37,7 @@ const brickInfo = {
 
 let bricks = [];
 for (let i = 0; i < brickRowCount; i++) {
-    
+    bricks[1] = []
 }
 
 function drawBall() {
