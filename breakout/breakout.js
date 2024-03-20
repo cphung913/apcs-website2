@@ -6,6 +6,7 @@ const ctx = canvas.getContext('2d');
 
 const brickRowCount = 9;
 const brickColumnCount = 5;
+let score = 0;
 
 const ball = {
     x: canvas.width / 2,
@@ -34,7 +35,10 @@ const brickInfo = {
     visible: true
 }
 
-let score = 0;
+let bricks = [];
+for (let i = 0; i < brickRowCount; i++) {
+    
+}
 
 function drawBall() {
     ctx.beginPath();
