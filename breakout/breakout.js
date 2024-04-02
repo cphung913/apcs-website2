@@ -77,13 +77,95 @@ function drawBricks() {
 }
 
 function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle();
     drawScore();
     drawBricks();
 }
 
-draw();
+function movePaddle() {
+    paddle.x += paddle.dx;
+
+    if (paddle.x < 0) paddle.x = 0;
+    if (paddle.x + paddle.w > canvas.width) paddle.x = canvas.width - paddle.w;
+}
+
+function moveBall() {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    if (ball.y + ball.size > canvas.height || ball.y + ball.size < 0) ball.dy *= -1;
+    if (ball.x + ball.size > canvas.width || ball.x + ball.size < 0) ball.dx *= -1;
+
+    if (
+        ball.x - ball.size > paddle.x &&
+        ball.x + ball.size < paddle.x + paddle.w &&
+        ball.y + ball.size > paddle.y
+    ) ball.dy = -1 * ball.speed;
+
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            if (
+                brick.visible &&
+                ball.y - ball.size < brick.y + brick.h &&
+                ball.x - ball.size > brick.x &&
+                ball.x + ball.size < brick.x + brick.w
+                ) {
+                brick.visible = false;
+                ball.dy *= -1;
+                increaseScore();
+            }
+        })
+    });
+
+    if (ball.y + ball.size > canvas.height) {
+        showAllBricks();
+        score = 0;
+    }
+}
+
+function increaseScore() {
+    score++;
+
+    if (score === brickRowCount * brickColumnCount) {
+        score = 0;
+        showAllBricks();
+    }
+}
+
+function showAllBricks() {
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            brick.visible = true;
+        })
+    })
+}
+
+function keyDown(e) {
+    if (e.key === 'ArrowRight' || e.key === 'Right') paddle.dx = paddle.speed;
+    if (e.key === 'ArrowLeft' || e.key === 'Left') paddle.dx = -paddle.speed;
+}
+
+function keyUp(e) {
+    if (e.key === 'ArrowRight' ||
+        e.key === 'Right' ||
+        e.key === 'ArrowLeft' ||
+        e.key === 'Left') 
+    paddle.dx = 0;
+}
+
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyUp', keyUp);
+
+function update() {
+    moveBall();
+    movePaddle();
+    draw();
+    requestAnimationFrame(update);
+}
+
+update();
 
 rulesBtn.addEventListener('click', () => rules.classList.add('show'));
 closeBtn.addEventListener('click', () => rules.classList.remove('show'));
