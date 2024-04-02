@@ -109,6 +109,7 @@ function moveBall() {
             if (
                 brick.visible &&
                 ball.y - ball.size < brick.y + brick.h &&
+                ball.y + ball.size > brick.y &&
                 ball.x - ball.size > brick.x &&
                 ball.x + ball.size < brick.x + brick.w
                 ) {
