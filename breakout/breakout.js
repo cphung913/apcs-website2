@@ -151,12 +151,13 @@ function keyUp(e) {
     if (e.key === 'ArrowRight' ||
         e.key === 'Right' ||
         e.key === 'ArrowLeft' ||
-        e.key === 'Left') 
-    paddle.dx = 0;
+        e.key === 'Left') {
+            paddle.dx = 0;
+        }
 }
 
 document.addEventListener('keydown', keyDown);
-document.addEventListener('keyUp', keyUp);
+document.addEventListener('keyup', keyUp);
 
 function update() {
     moveBall();
