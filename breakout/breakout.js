@@ -43,7 +43,8 @@ for (let i = 0; i < brickRowCount; i++) {
     for (let j = 0; j < brickColumnCount; j++) {
         const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
         const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
-        bricks[i][j] = {x, y, ...brickInfo};
+        const test = i * brickColumnCount + j;
+        bricks[i][j] = {test, x, y, ...brickInfo};
     }
 }
 
@@ -71,7 +72,7 @@ function drawScore() {
 function drawBricks() {
     bricks.forEach(column => column.forEach(brick => {
         ctx.beginPath();
-        ctx.fillRect(brick.x, brick.y, brick.w, brick.h);
+        ctx.rect(brick.x, brick.y, brick.w, brick.h);
         ctx.fillStyle = brick.visible ? '#0095dd' : 'transparent';
         ctx.fill();
         ctx.closePath();
@@ -101,8 +102,8 @@ function moveBall() {
     if (ball.x + ball.size > canvas.width || ball.x + ball.size < 0) ball.dx *= -1;
 
     if (
-        ball.x - ball.size > paddle.x &&
-        ball.x + ball.size < paddle.x + paddle.w &&
+        ball.x + ball.size > paddle.x &&
+        ball.x - ball.size < paddle.x + paddle.w &&
         ball.y + ball.size > paddle.y
     ) ball.dy = -1 * ball.speed;
 
@@ -118,7 +119,8 @@ function moveBall() {
                     brick.visible = false;
                     ball.dy *= -1;
                     increaseScore();
-                    console.log(bricks)
+                    console.log(brick.test);
+                    console.log(bricks);
                 }
             }
         })
@@ -130,10 +132,7 @@ function moveBall() {
 function increaseScore() {
     score++;
 
-    if (score === brickRowCount * brickColumnCount) {
-        score = 0;
-        showAllBricks();
-    }
+    if (score === brickRowCount * brickColumnCount) endGame();
 }
 
 function showAllBricks() {
