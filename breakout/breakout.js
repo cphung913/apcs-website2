@@ -1,5 +1,6 @@
 const rulesBtn = document.getElementById('rules-btn');
 const closeBtn = document.getElementById('close-btn');
+const startBtn = document.getElementById('start');
 const rules = document.getElementById('rules');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -7,6 +8,7 @@ const ctx = canvas.getContext('2d');
 const brickRowCount = 9;
 const brickColumnCount = 5;
 let score = 0;
+let playing = false;
 
 const ball = {
     x: canvas.width / 2,
@@ -70,7 +72,7 @@ function drawBricks() {
     bricks.forEach(column => column.forEach(brick => {
         ctx.beginPath();
         ctx.fillRect(brick.x, brick.y, brick.w, brick.h);
-        ctx.fillStyle = brick.visible ? `#0095dd` : `transparent`;
+        ctx.fillStyle = brick.visible ? '#0095dd' : 'transparent';
         ctx.fill();
         ctx.closePath();
     }));
@@ -106,24 +108,23 @@ function moveBall() {
 
     bricks.forEach(column => {
         column.forEach(brick => {
-            if (
-                brick.visible &&
-                ball.y - ball.size < brick.y + brick.h &&
-                ball.y + ball.size > brick.y &&
-                ball.x - ball.size > brick.x &&
-                ball.x + ball.size < brick.x + brick.w
-                ) {
-                brick.visible = false;
-                ball.dy *= -1;
-                increaseScore();
+            if (brick.visible) {
+                if (
+                    ball.y - ball.size < brick.y + brick.h &&
+                    ball.y + ball.size > brick.y &&
+                    ball.x - ball.size > brick.x &&
+                    ball.x + ball.size < brick.x + brick.w
+                    ) {
+                    brick.visible = false;
+                    ball.dy *= -1;
+                    increaseScore();
+                    console.log(bricks)
+                }
             }
         })
     });
 
-    if (ball.y + ball.size > canvas.height) {
-        showAllBricks();
-        score = 0;
-    }
+    if (ball.y + ball.size > canvas.height) endGame();
 }
 
 function increaseScore() {
@@ -157,17 +158,32 @@ function keyUp(e) {
         }
 }
 
-document.addEventListener('keydown', keyDown);
-document.addEventListener('keyup', keyUp);
-
 function update() {
     moveBall();
     movePaddle();
     draw();
-    requestAnimationFrame(update);
+    if (playing) requestAnimationFrame(update);
 }
 
-update();
+function endGame() {
+    playing = false;
+}
 
+function startGame() {
+    showAllBricks();
+    score = 0;
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    ball.dx = ball.speed;
+    ball.dy = -ball.speed;
+    paddle.x = canvas.width / 2 - 40;
+    playing = true;
+    update();
+}
+
+startBtn.addEventListener('click', startGame);
 rulesBtn.addEventListener('click', () => rules.classList.add('show'));
 closeBtn.addEventListener('click', () => rules.classList.remove('show'));
+
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
