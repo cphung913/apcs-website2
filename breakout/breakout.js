@@ -43,8 +43,7 @@ for (let i = 0; i < brickRowCount; i++) {
     for (let j = 0; j < brickColumnCount; j++) {
         const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
         const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
-        const test = i * brickColumnCount + j;
-        bricks[i][j] = {test, x, y, ...brickInfo};
+        bricks[i][j] = {x, y, ...brickInfo};
     }
 }
 
@@ -119,8 +118,6 @@ function moveBall() {
                     brick.visible = false;
                     ball.dy *= -1;
                     increaseScore();
-                    console.log(brick.test);
-                    console.log(bricks);
                 }
             }
         })
