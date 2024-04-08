@@ -9,4 +9,11 @@ body {
     background-color: #516dff;
     color: #fff;
     font-family: "Press Start 2P", system-ui;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.choose-insect-btn img {
+    
 }
