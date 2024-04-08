@@ -44,3 +44,19 @@ body {
 .screen.up {
     margin-top: -100vh;
 }
+
+a {
+    color: #fff;
+}
+
+h1 {
+    line-height: 1.4;
+}
+
+.insects-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: center;
+    padding: 0;
+}
