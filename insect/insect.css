@@ -35,5 +35,8 @@ body {
     color: #516dff;
     padding: 15px 20px;
     cursor: pointer;
+}
 
+.btn:hover {
+    opacity: 0.9;
 }
