@@ -19,7 +19,7 @@ chooseInsectButtons.forEach(chooseInsectButton => {
         const alt = img.getAttribute('alt');
         const src = img.getAttribute('src');
         screens[1].classList.add('up');
-        selectedInsect = (src, alt);
+        selectedInsect = {src, alt};
         setTimeout(createInsect, 1000);
         startGame();
     });
