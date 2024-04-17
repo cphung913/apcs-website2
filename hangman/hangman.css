@@ -22,6 +22,9 @@ h1 {
 .game-container {
     padding: 20px 30px;
     position: relative;
+    margin: auto;
+    width: ;
+    height: ;
 }
 
 .figure-container {
@@ -33,4 +36,10 @@ h1 {
 
 .figure-part {
     display: none;
+}
+
+.wrong-letters-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
