@@ -27,11 +27,12 @@ function displayWord() {
 }
 
 function showNotification() {
-
+    notification.classList.add('show');
+    setTimeout(() => notification.classList.remove('show'), 2000);
 }
 
 function displayWrong() {
-    
+
 }
 
 window.addEventListener('keydown', e => {
