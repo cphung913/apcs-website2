@@ -15,5 +15,7 @@ const correctLetters = [];
 const wrongLetters = [];
 
 function displayWord() {
-    
+    wordEl.innerHTML = `
+        ${selectedWord}
+    `
 }
