@@ -4,4 +4,5 @@ const playAgainBtn = document.getElementById('play-again');
 const popup = document.getElementById('popup-container');
 const notification = document.getElementById('notification-container');
 const finalMessage = document.getElementById('final-message');
-const f
+const figureParts = document.querySelectorAll('.figure-part');
+
