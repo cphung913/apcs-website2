@@ -6,3 +6,4 @@ const notification = document.getElementById('notification-container');
 const finalMessage = document.getElementById('final-message');
 const figureParts = document.querySelectorAll('.figure-part');
 
+const word = ['application', 'programming', 'interface', 'wizard'];
