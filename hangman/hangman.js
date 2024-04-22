@@ -8,4 +8,5 @@ const figureParts = document.querySelectorAll('.figure-part');
 
 const word = ['application', 'programming', 'interface', 'wizard'];
 
-let selectedIndex = Math.floor(Math.random() * word.length);
+let selectedIndex = Math.round(Math.random() * word.length);
+let selectedWord = word[selectedIndex];
