@@ -28,5 +28,10 @@ function displayWord() {
         finalMessage.innerText = 'Congratulations! You won!';
         popup.style.display = 'flex';
     }
-
 }
+
+window.addEventListener('keydown', e => {
+    
+})
+
+displayWord();
