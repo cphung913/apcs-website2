@@ -27,6 +27,10 @@ function displayWord() {
 }
 
 function showNotification() {
+
+}
+
+function displayWrong() {
     
 }
 
@@ -42,6 +46,7 @@ window.addEventListener('keydown', e => {
             }
         } else if (!wrongLetters.includes(letter)) {
             wrongLetters.push(letter);
+            displayWrong();
         }
     }
 })
