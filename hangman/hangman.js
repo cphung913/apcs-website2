@@ -16,6 +16,6 @@ const wrongLetters = [];
 
 function displayWord() {
     wordEl.innerHTML = `
-        ${selectedWord}
+        ${selectedWord.split('').map(letter => ``)}
     `
 }
