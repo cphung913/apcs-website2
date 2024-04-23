@@ -41,6 +41,11 @@ function displayWrong() {
             part.style.display = 'none';
         }
     });
+
+    if (wrongLetters.length >= figureParts.length) {
+        finalMessage.innerText = 'Unfortunately, you lost!';
+        popup.style.display = 'flex';
+    }
 }
 
 window.addEventListener('keydown', e => {
