@@ -32,7 +32,7 @@ function showNotification() {
 }
 
 function displayWrong() {
-    wrongLettersEl.innerHTML = ``;
+    wrongLettersEl.innerHTML = `${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}`;
 }
 
 window.addEventListener('keydown', e => {
