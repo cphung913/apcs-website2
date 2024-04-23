@@ -59,6 +59,7 @@ function catchInsect() {
 function increaseScore() {
     score++;
     if (score > 19) message.classList.add('visible');
+    if (score > 59 && seconds < 30) message.innerHTML = 'Congratulations!<br>You beat the game!';
     scoreEl.innerHTML = `Score: ${score}`;
 }
 
