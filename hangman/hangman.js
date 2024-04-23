@@ -48,6 +48,17 @@ function displayWrong() {
     }
 }
 
+playAgainBtn.addEventListener('click', () => {
+    wrongLetters = [];
+    correctLetters = [];
+    selectedWord = word[Math.round(Math.random() * word.length)];
+    popup.style.display = 'none';
+    figureParts.forEach(part => {
+        part.style.display = 'none';
+    })
+    wrongLettersEl.innerText = '';
+})
+
 window.addEventListener('keydown', e => {
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         const letter = e.key;
