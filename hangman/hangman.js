@@ -49,8 +49,8 @@ function displayWrong() {
 }
 
 playAgainBtn.addEventListener('click', () => {
-    wrongLetters = [];
-    correctLetters = [];
+    wrongLetters.length = 0;
+    correctLetters.length = 0;
     selectedWord = word[Math.round(Math.random() * word.length)];
     popup.style.display = 'none';
     figureParts.forEach(part => {
