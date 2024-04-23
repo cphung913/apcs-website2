@@ -32,7 +32,7 @@ function showNotification() {
 }
 
 function displayWrong() {
-
+    wrongLettersEl.innerHTML = ``;
 }
 
 window.addEventListener('keydown', e => {
