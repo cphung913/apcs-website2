@@ -8,7 +8,7 @@ const figureParts = document.querySelectorAll('.figure-part');
 
 const word = ['application', 'programming', 'interface', 'wizard'];
 
-let selectedIndex = Math.round(Math.random() * word.length);
+let selectedIndex = Math.floor(Math.random() * word.length);
 let selectedWord = word[selectedIndex];
 
 const correctLetters = [];
@@ -49,7 +49,7 @@ function displayWrong() {
 playAgainBtn.addEventListener('click', () => {
     wrongLetters.length = 0;
     correctLetters.length = 0;
-    selectedWord = word[Math.round(Math.random() * word.length)];
+    selectedWord = word[Math.floor(Math.random() * word.length)];
     popup.style.display = 'none';
     figureParts.forEach(part => {
         part.style.display = 'none';
