@@ -15,9 +15,7 @@ const correctLetters = [];
 const wrongLetters = [];
 
 function displayWord() {
-    wordEl.innerHTML = `
-        ${selectedWord.split('').map(letter => `<span class="letter">${correctLetters.includes(letter) ? letter : ''}</span>`).join('')}
-    `;
+    wordEl.innerHTML = `${selectedWord.split('').map(letter => `<span class="letter">${correctLetters.includes(letter) ? letter : ''}</span>`).join('')}`;
 
     const innerWord = wordEl.innerText.replace(/\n/g, '');
     if (innerWord === selectedWord) {
