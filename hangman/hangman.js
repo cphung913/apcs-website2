@@ -10,6 +10,7 @@ const word = ['application', 'programming', 'interface', 'wizard'];
 
 let selectedIndex = Math.floor(Math.random() * word.length);
 let selectedWord = word[selectedIndex];
+let gameOver = false;
 
 const correctLetters = [];
 const wrongLetters = [];
@@ -21,6 +22,7 @@ function displayWord() {
     if (innerWord === selectedWord) {
         finalMessage.innerText = 'Congratulations! You won!';
         popup.style.display = 'flex';
+        gameOver = true;
     }
 }
 
@@ -41,8 +43,9 @@ function displayWrong() {
     });
 
     if (wrongLetters.length >= figureParts.length) {
-        finalMessage.innerText = 'Unfortunately, you lost!';
+        finalMessage.innerText = `The word was: ${selectedWord}`;
         popup.style.display = 'flex';
+        gameOver = true;
     }
 }
 
@@ -55,11 +58,13 @@ playAgainBtn.addEventListener('click', () => {
         part.style.display = 'none';
     })
     wrongLettersEl.innerText = '';
+    gameOver = false;
 
     displayWord();
 })
 
 window.addEventListener('keydown', e => {
+    if (gameOver) return;
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         const letter = e.key;
         if (selectedWord.includes(letter)) {
