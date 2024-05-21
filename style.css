@@ -63,4 +63,12 @@ h5 {
 .section img {
     width: 50vw;
     height: 100%;
+    transform: translateX(-30%) scale(.95);
+    opacity: 0;
+    transition: all .5s;
+}
+
+.section.active img {
+    transform: translateX(0%) scale(1);
+    opacity: 1;
 }
