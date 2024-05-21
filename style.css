@@ -33,9 +33,11 @@ h5 {
 .links {
     width: 100vw;
     margin: 0;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 40px;
     align-items: center;
 }
 
@@ -43,7 +45,7 @@ h5 {
     display: flex;
     justify-content: start;
     align-items: center;
-    height: 400px;
+    height: 600px;
     width: 100%;
 }
 
