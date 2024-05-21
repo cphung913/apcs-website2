@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
 * {
     transition: all 0.3s ease;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 body {
@@ -13,6 +12,20 @@ header {
     height: 600px;
     margin: 0;
     background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: rgb(51, 51, 51);
+    margin-bottom: 5px;
+}
+
+h5 {
+    color: gray;
+    margin: 0;
 }
 
 .links {
