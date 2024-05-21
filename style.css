@@ -60,7 +60,7 @@ h5 {
     font-size: 3.2rem;
 }
 
-.section img {
+.section .slide {
     width: 50vw;
     height: 100%;
     transform: translateX(-30%) scale(.95);
@@ -68,7 +68,7 @@ h5 {
     transition: all .5s;
 }
 
-.section.active img {
+.section .slide.active {
     transform: translateX(0%) scale(1);
     opacity: 1;
 }

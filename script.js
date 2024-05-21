@@ -1,4 +1,4 @@
-const sections = [...document.querySelectorAll('.section')];
+const imgs = [...document.querySelectorAll('.slide')];
 
 function debounce(func, wait = 20, immediate = true) {
     var timeout;
@@ -17,7 +17,7 @@ function debounce(func, wait = 20, immediate = true) {
 
 
   function checkSlide() {
-    sections.forEach(sliderImage => {
+    imgs.forEach(sliderImage => {
       // half way through the image
       const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
       // bottom of the image
